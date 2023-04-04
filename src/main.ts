@@ -4,13 +4,12 @@ import bodyParser from "body-parser";
 import express from "express";
 
 import { appConfig } from "./shared/infrastructure/config";
-import { userRouter } from "./users/infrastructure/rest-api/user-router";
 
-function boostrap() {
+function main() {
   const app = express();
 
   app.use(bodyParser.json());
-  app.use("/users", userRouter);
+  app.use("/");
 
   const { port } = appConfig.server;
 
@@ -19,4 +18,4 @@ function boostrap() {
   });
 }
 
-boostrap();
+main();
